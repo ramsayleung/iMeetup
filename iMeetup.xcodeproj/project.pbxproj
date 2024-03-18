@@ -86,6 +86,7 @@
 		579E15082BA7BD4C00B70176 = {
 			isa = PBXGroup;
 			children = (
+				579E15492BA8177E00B70176 /* README.md */,
 				579E15132BA7BD4C00B70176 /* iMeetup */,
 				579E15252BA7BD4D00B70176 /* iMeetupTests */,
 				579E152F2BA7BD4D00B70176 /* iMeetupUITests */,
@@ -115,7 +116,6 @@
 				579E151A2BA7BD4D00B70176 /* iMeetup.entitlements */,
 				579E151B2BA7BD4D00B70176 /* Preview Content */,
 				579E153F2BA7BFD000B70176 /* ContentViewModel.swift */,
-				579E15492BA8177E00B70176 /* README.md */,
 				579E15472BA8157B00B70176 /* EditProfileViewModel.swift */,
 			);
 			path = iMeetup;

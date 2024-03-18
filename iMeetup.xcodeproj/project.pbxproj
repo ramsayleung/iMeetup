@@ -55,6 +55,7 @@
 		579E15432BA7FB3400B70176 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		579E15452BA805CA00B70176 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		579E15472BA8157B00B70176 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		579E15492BA8177E00B70176 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +115,7 @@
 				579E151A2BA7BD4D00B70176 /* iMeetup.entitlements */,
 				579E151B2BA7BD4D00B70176 /* Preview Content */,
 				579E153F2BA7BFD000B70176 /* ContentViewModel.swift */,
+				579E15492BA8177E00B70176 /* README.md */,
 				579E15472BA8157B00B70176 /* EditProfileViewModel.swift */,
 			);
 			path = iMeetup;

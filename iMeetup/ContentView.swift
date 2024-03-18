@@ -54,7 +54,7 @@ struct ContentView: View {
             }
             .sheet(item: $viewModel.selectedProfile) {profile in
                 EditProfileView(profile: profile){
-                    viewModel.updateProfiles(profile: $0)
+                    viewModel.addProfiles(profile: $0)
                 }
             }
         }

@@ -47,12 +47,14 @@ extension ContentView {
             }
         }
         
-        func updateProfiles(profile: Profile) {
+        func addProfiles(profile: Profile) {
             profiles.append(profile)
+            save()
         }
         
         func deleteProfile(of offsets: IndexSet){
             profiles.remove(atOffsets: offsets)
+            save()
         }
     }
 }

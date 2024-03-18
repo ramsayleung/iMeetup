@@ -18,6 +18,7 @@
 		579E15422BA7BFFB00B70176 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579E15412BA7BFFB00B70176 /* Profile.swift */; };
 		579E15442BA7FB3400B70176 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579E15432BA7FB3400B70176 /* EditProfileView.swift */; };
 		579E15462BA805CA00B70176 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579E15452BA805CA00B70176 /* ProfileView.swift */; };
+		579E15482BA8157B00B70176 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579E15472BA8157B00B70176 /* EditProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		579E15412BA7BFFB00B70176 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		579E15432BA7FB3400B70176 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		579E15452BA805CA00B70176 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		579E15472BA8157B00B70176 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				579E151A2BA7BD4D00B70176 /* iMeetup.entitlements */,
 				579E151B2BA7BD4D00B70176 /* Preview Content */,
 				579E153F2BA7BFD000B70176 /* ContentViewModel.swift */,
+				579E15472BA8157B00B70176 /* EditProfileViewModel.swift */,
 			);
 			path = iMeetup;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				579E15172BA7BD4C00B70176 /* ContentView.swift in Sources */,
 				579E15442BA7FB3400B70176 /* EditProfileView.swift in Sources */,
 				579E15152BA7BD4C00B70176 /* iMeetupApp.swift in Sources */,
+				579E15482BA8157B00B70176 /* EditProfileViewModel.swift in Sources */,
 				579E15462BA805CA00B70176 /* ProfileView.swift in Sources */,
 				579E15402BA7BFD000B70176 /* ContentViewModel.swift in Sources */,
 			);

@@ -9,26 +9,25 @@ import SwiftUI
 
 struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
-    var profile: Profile
     var onSave: (Profile) -> Void
-    @State private var name = ""
-    @State private var company = ""
+    @State private var viewModel: ViewModel
+
     var body: some View {
         NavigationStack {
             VStack {
-                Image(uiImage:profile.avatar)
+                Image(uiImage: viewModel.profile.avatar)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(lineWidth: 2).foregroundColor(.gray))
                 
-                TextField("Name", text: $name)
+                TextField("Name", text: $viewModel.name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 40)
                     .padding(.vertical, 10)
                 
-                TextField("Company", text: $company)
+                TextField("Company", text: $viewModel.company)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 40)
                 
@@ -37,11 +36,8 @@ struct EditProfileView: View {
             .navigationTitle("Profile")
             .toolbar {
                 Button("save"){
-                    var newProfile = profile
-                    newProfile.id = UUID()
-                    newProfile.name = name
-                    newProfile.company = company
-                    onSave(newProfile)
+
+                    onSave(viewModel.newProfile())
                     dismiss()
                 }
             }
@@ -49,10 +45,9 @@ struct EditProfileView: View {
     }
     
     init(profile: Profile, onSave: @escaping (Profile) -> Void) {
-        self.profile = profile
+        let viewModel = ViewModel(profile: profile)
         self.onSave = onSave
-        _name = State(initialValue: profile.name)
-        _company = State(initialValue: profile.company)
+        _viewModel = State(initialValue: viewModel)
     }
 }
 

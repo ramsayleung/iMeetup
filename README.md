@@ -5,3 +5,5 @@ The answer to challenge in the [100 Days Of SwiftUI Day 77](https://www.hackingw
 
 <img src="./img/iMeetup.gif" width="250" height="500">
 
+<img src="./img/iMeetup_v2.gif" width="250" height="500">
+

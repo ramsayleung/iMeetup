@@ -30,7 +30,7 @@ extension ContentView {
         func save() {
             do {
                 let data = try JSONEncoder().encode(profiles)
-                try data.write(to: savePath)
+                try data.write(to: savePath, options: [.atomic, .completeFileProtection])
             }catch {
                 print("Unable to save data.")
             }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
@@ -15,28 +16,50 @@ struct EditProfileView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image(uiImage: viewModel.profile.avatar)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(lineWidth: 2).foregroundColor(.gray))
+                Form {
+                    
+                Section {
+                    Image(uiImage: viewModel.profile.avatar)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(lineWidth: 2).foregroundColor(.gray))
+                    
+                    TextField("Name", text: $viewModel.name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    TextField("Company", text: $viewModel.company)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
                 
-                TextField("Name", text: $viewModel.name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 10)
-                
-                TextField("Company", text: $viewModel.company)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 40)
-                
-                Spacer()
+                Section("Location") {
+                    Toggle("Add location", isOn: $viewModel.addLocation)
+                    
+                    if(viewModel.addLocation) {
+                        Text(viewModel.geotappedAddress)
+                            .font(.caption)
+                        Map(initialPosition: viewModel.currentPosition) {
+                            Annotation("",coordinate: viewModel.currentCoordinate) {
+                                Image(uiImage: viewModel.profile.avatar)
+                                    .resizable()
+                                    .frame(width: 44, height: 44)
+                            }
+                        }
+                        .scaledToFit()
+                    }
+                }
+                    
+                }
+            }
+            .onChange(of: viewModel.addLocation){
+                if(viewModel.addLocation) {
+                    viewModel.locationFetcher.start()
+                }
             }
             .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("save"){
-
                     onSave(viewModel.newProfile())
                     dismiss()
                 }

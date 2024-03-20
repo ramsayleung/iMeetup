@@ -17,7 +17,12 @@ struct Profile: Identifiable, Codable, Comparable {
     var avatar: UIImage
     var name: String
     var company: String
-    init(avatar: UIImage, name: String, company: String){
+    var latitude: Double?
+    var longitude: Double?
+    var addLocation = false
+    var geotappedAddress: String?
+    
+    init(avatar: UIImage, name: String, company: String) {
         self.avatar = avatar
         self.name = name
         self.company = company
@@ -30,6 +35,10 @@ struct Profile: Identifiable, Codable, Comparable {
         avatar = UIImage(data: imageData) ?? UIImage()
         name = try container.decode(String.self, forKey: .name)
         company = try container.decode(String.self, forKey: .company)
+        latitude = try container.decode(Double.self, forKey: .latitude)
+        longitude = try container.decode(Double.self, forKey: .longitude)
+        addLocation = try container.decode(Bool.self, forKey: .addLocation)
+        geotappedAddress = try container.decode(String.self, forKey: .geotappedAddress)
     }
     
     // Custom method for encoding
@@ -40,15 +49,25 @@ struct Profile: Identifiable, Codable, Comparable {
         if let jpegData = avatar.jpegData(compressionQuality: 1) {
             try container.encode(jpegData, forKey: .avatar)
         }
+        try container.encode(latitude, forKey: .latitude)
+        try container.encode(longitude, forKey: .longitude)
+        try container.encode(addLocation, forKey: .addLocation)
+        try container.encode(geotappedAddress, forKey: .geotappedAddress)
     }
     
     enum CodingKeys: String, CodingKey {
         case avatar
         case name
         case company
+        case latitude
+        case longitude
+        case addLocation
+        case geotappedAddress
     }
     
 #if DEBUG
      static var example = Profile(avatar: UIImage(systemName: "swift") ?? UIImage(), name: "Swift Talor", company: "This is a description")
 #endif
+    static let defaultLatitude = 51.501
+    static let defaultLongitude = -0.141
 }
